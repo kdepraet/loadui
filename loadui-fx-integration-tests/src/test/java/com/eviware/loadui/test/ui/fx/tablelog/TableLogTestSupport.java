@@ -1,8 +1,7 @@
 package com.eviware.loadui.test.ui.fx.tablelog;
 
 import com.eviware.loadui.api.model.ProjectItem;
-import com.eviware.loadui.api.model.WorkspaceProvider;
-import com.eviware.loadui.util.BeanInjector;
+import com.eviware.loadui.test.ui.fx.FxIntegrationBase;
 import com.eviware.loadui.util.test.TestUtils;
 import com.google.common.util.concurrent.SettableFuture;
 import javafx.application.Platform;
@@ -75,9 +74,9 @@ public class TableLogTestSupport
 		assertThat( error, is( EMPTY_ERROR ) );
 	}
 
-	public static void waitForProjectToHaveRunningAs( final boolean running ) {
-		Collection<? extends ProjectItem> projects = BeanInjector.getBean( WorkspaceProvider.class ).getWorkspace()
-				.getProjects();
+	public static void waitForProjectToHaveRunningAs( final boolean running )
+	{
+		Collection<? extends ProjectItem> projects = FxIntegrationBase.getWorkspaceItem().getProjects();
 		final ProjectItem project = projects.iterator().next();
 		TestUtils.awaitCondition( new Callable<Boolean>()
 		{

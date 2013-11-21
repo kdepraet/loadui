@@ -1,6 +1,7 @@
 package com.eviware.loadui.test.ui.fx;
 
 import com.eviware.loadui.api.model.ProjectItem;
+import com.eviware.loadui.api.model.WorkspaceItem;
 import com.eviware.loadui.api.model.WorkspaceProvider;
 import com.eviware.loadui.ui.fx.util.test.ComponentHandle;
 import com.eviware.loadui.ui.fx.util.test.LoadUiRobot;
@@ -170,7 +171,7 @@ public class FxIntegrationBase extends GuiTest
 		System.out.println( "Component node: " + componentNode );
 		Set<Node> knobs = findAll( "#knob", componentNode );
 
-		Node knob = Lists.newArrayList(knobs).get( number - 1 );
+		Node knob = Lists.newArrayList( knobs ).get( number - 1 );
 
 		return new KnobHandle( knob );
 	}
@@ -245,8 +246,12 @@ public class FxIntegrationBase extends GuiTest
 
 	public static ProjectItem getProjectItem()
 	{
-		return BeanInjector.getBean( WorkspaceProvider.class ).getWorkspace()
-				.getProjects().iterator().next();
+		return getWorkspaceItem().getProjects().iterator().next();
+	}
+
+	public static WorkspaceItem getWorkspaceItem()
+	{
+		return BeanInjector.getBean( WorkspaceProvider.class ).getWorkspace();
 	}
 
 	public class KnobHandle
@@ -270,6 +275,8 @@ public class FxIntegrationBase extends GuiTest
 			return this;
 		}
 	}
+<<<<<<< Updated upstream
+=======
 
 	public void waitAndClick( final String query )
 	{
@@ -282,10 +289,11 @@ public class FxIntegrationBase extends GuiTest
 			}
 		}, 5 );
 
-		if(!exists( query ))
+		if( !exists( query ) )
 		{
-			fail("Expected to find match for query \"" + query + "\" within wait period but failed. Captured screen shot: " + captureScreenshot().getAbsolutePath());
+			fail( "Expected to find match for query \"" + query + "\" within wait period but failed. Captured screen shot: " + captureScreenshot().getAbsolutePath() );
 		}
 		click( query );
 	}
+>>>>>>> Stashed changes
 }

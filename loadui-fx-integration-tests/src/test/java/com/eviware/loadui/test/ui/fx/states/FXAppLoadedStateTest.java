@@ -16,10 +16,9 @@
 package com.eviware.loadui.test.ui.fx.states;
 
 import com.eviware.loadui.api.model.WorkspaceItem;
-import com.eviware.loadui.api.model.WorkspaceProvider;
 import com.eviware.loadui.test.categories.IntegrationTest;
+import com.eviware.loadui.test.ui.fx.FxIntegrationBase;
 import com.eviware.loadui.test.ui.fx.GUI;
-import com.eviware.loadui.util.BeanInjector;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -56,7 +55,7 @@ public class FXAppLoadedStateTest
 	@Test
 	public void shouldHaveNoProjects()
 	{
-		WorkspaceItem workspace = BeanInjector.getBean( WorkspaceProvider.class ).getWorkspace();
+		WorkspaceItem workspace = FxIntegrationBase.getWorkspaceItem();
 		assertThat( workspace.getProjectRefs().size(), is( 0 ) );
 	}
 }
