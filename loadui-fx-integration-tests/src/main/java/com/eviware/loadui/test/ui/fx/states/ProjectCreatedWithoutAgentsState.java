@@ -64,10 +64,19 @@ public class ProjectCreatedWithoutAgentsState extends TestState
 	protected void exitToParent() throws Exception
 	{
 		log.debug( "Deleting project." );
-		GUI.getOpenSourceGui().getController().click( "#projectRefCarousel .project-ref-view .menu-button" );
-		GUI.getOpenSourceGui().getController().click( "#delete-item" );
-		GUI.getOpenSourceGui().getController().click( ".confirmation-dialog #default" );
-		waitUntil( ".project-ref-view", is( not( visible() ) ) );
+		try
+		{
+			GUI.getOpenSourceGui().getController().click( "#projectRefCarousel .project-ref-view .menu-button" );
+			GUI.getOpenSourceGui().getController().click( "#delete-item" );
+			GUI.getOpenSourceGui().getController().click( ".confirmation-dialog #default" );
+			waitUntil( ".project-ref-view", is( not( visible() ) ) );
+		}
+		catch( Exception e )
+		{
+			log.warn( "Problem exiting state {}: {}", STATE, e );
+			e.printStackTrace();
+		}
+
 	}
 
 }

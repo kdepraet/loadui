@@ -16,9 +16,8 @@
 package com.eviware.loadui.test.ui.fx.states;
 
 import com.eviware.loadui.api.model.ProjectItem;
-import com.eviware.loadui.api.model.WorkspaceProvider;
 import com.eviware.loadui.test.categories.IntegrationTest;
-import com.eviware.loadui.util.BeanInjector;
+import com.eviware.loadui.test.ui.fx.FxIntegrationBase;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,7 +26,7 @@ import org.junit.experimental.categories.Category;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@Category( IntegrationTest.class )
+@Category(IntegrationTest.class)
 public class ScenarioCreatedStateTest
 {
 	@BeforeClass
@@ -45,8 +44,7 @@ public class ScenarioCreatedStateTest
 	@Test
 	public void shouldHaveScenario()
 	{
-		ProjectItem project = BeanInjector.getBean( WorkspaceProvider.class ).getWorkspace().getProjects().iterator()
-				.next();
+		ProjectItem project = FxIntegrationBase.getProjectItem();
 		assertThat( project.getChildren().size(), is( 1 ) );
 		assertThat( project.getChildren().iterator().next().getLabel(), is( ScenarioCreatedState.SCENARIO_NAME ) );
 	}
