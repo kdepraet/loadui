@@ -275,8 +275,6 @@ public class FxIntegrationBase extends GuiTest
 			return this;
 		}
 	}
-<<<<<<< Updated upstream
-=======
 
 	public void waitAndClick( final String query )
 	{
@@ -295,5 +293,5 @@ public class FxIntegrationBase extends GuiTest
 		}
 		click( query );
 	}
->>>>>>> Stashed changes
+
 }
