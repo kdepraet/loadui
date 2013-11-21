@@ -276,22 +276,4 @@ public class FxIntegrationBase extends GuiTest
 		}
 	}
 
-	public void waitAndClick( final String query )
-	{
-		TestUtils.awaitConditionSilent( new Callable<Boolean>()
-		{
-			@Override
-			public Boolean call() throws Exception
-			{
-				return exists( query );
-			}
-		}, 5 );
-
-		if( !exists( query ) )
-		{
-			fail( "Expected to find match for query \"" + query + "\" within wait period but failed. Captured screen shot: " + captureScreenshot().getAbsolutePath() );
-		}
-		click( query );
-	}
-
 }
