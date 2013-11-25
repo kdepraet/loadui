@@ -26,10 +26,8 @@ import static com.google.code.tempusfugit.temporal.Timeout.timeout;
 import static com.google.code.tempusfugit.temporal.WaitFor.waitOrTimeout;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.fail;
 import static org.loadui.testfx.Matchers.nodeVisible;
 import static org.loadui.testfx.Matchers.visible;
-
 
 /**
  * @author Henrik

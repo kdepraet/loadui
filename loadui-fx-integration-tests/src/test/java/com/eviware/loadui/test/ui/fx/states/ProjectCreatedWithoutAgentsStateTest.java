@@ -25,7 +25,6 @@ import org.junit.experimental.categories.Category;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.loadui.testfx.Assertions.verifyThat;
 
 /**
  * Integration tests for testing the loadUI controller through its API.
