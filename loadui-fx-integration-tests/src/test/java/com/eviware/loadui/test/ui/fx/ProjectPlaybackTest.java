@@ -17,8 +17,11 @@ package com.eviware.loadui.test.ui.fx;
 
 import com.eviware.loadui.api.model.ProjectItem;
 import com.eviware.loadui.test.categories.IntegrationTest;
+import com.google.code.tempusfugit.concurrency.IntermittentTestRunner;
+import com.google.code.tempusfugit.concurrency.annotations.Intermittent;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
 
 import static com.eviware.loadui.test.ui.fx.FxIntegrationBase.RunBlocking.NON_BLOCKING;
 import static com.eviware.loadui.ui.fx.util.test.LoadUiRobot.Component.FIXED_RATE_GENERATOR;
@@ -28,6 +31,8 @@ import static com.google.code.tempusfugit.temporal.WaitFor.waitOrTimeout;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 @Category(IntegrationTest.class)
+@RunWith( IntermittentTestRunner.class )
+@Intermittent( repetition = 5 )
 public class ProjectPlaybackTest extends SimpleWebTestBase
 {
 
@@ -47,7 +52,7 @@ public class ProjectPlaybackTest extends SimpleWebTestBase
 	{
 		ProjectItem project = getProjectItem();
 
-		long veryHighLoad = 10_000;
+		long veryHighLoad = 5_000;
 		turnKnobIn( FIXED_RATE_GENERATOR ).to( veryHighLoad );
 
 		setMaxConcurrentRequestsTo( 1_000 );
